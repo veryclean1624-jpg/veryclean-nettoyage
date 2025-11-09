@@ -222,10 +222,10 @@
     <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre besoin..."></textarea>
   </div>
 
-  <!-- CHAMP POUR LES LIENS -->
+  <!-- CHAMP PIÈCES JOINTES (ENVOYÉ) -->
   <div class="form-group">
     <label>Pièces jointes (liens)</label>
-    <textarea id="attachment-links" name="Pièces jointes" rows="3"  placeholder="Les liens apparaîtront ici..."></textarea>
+    <textarea id="attachment-links" name="Pièces jointes" rows="3" placeholder="Les liens apparaîtront ici..."></textarea>
     <div id="uploadcare-widget"></div>
     <small>Max 25 Mo - JPG, PNG, PDF, Word</small>
   </div>
@@ -249,6 +249,7 @@
   </footer>
 
   <!-- UPLOADCARE SCRIPT -->
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.min.js"></script>
 <script>
   UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
   const widget = uploadcare.Widget('#uploadcare-widget', { multiple: true });
@@ -266,5 +267,6 @@
 </script>
 </body>
 </html>
+
 
 
