@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veryclean - Nos Réalisations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #007bff;
+            text-align: center;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .caption {
+            text-align: center;
+            margin-top: 8px;
+            font-style: italic;
+            color: #555;
+            font-size: 0.95em;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 30px 0;
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo Veryclean" class="logo">
+        <h1>Veryclean</h1>
+        <p>Nettoyage professionnel et impeccable</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="realisations.html">Nos Réalisations</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Nos Réalisations</h2>
+        <p>Découvrez quelques exemples de nos chantiers avant/après.</p>
+
+        <div class="gallery">
+            <!-- DA1 -->
+            <div class="gallery-item">
+                <img src="DA1AV.jpg" alt="Appartement 1 - Avant">
+                <p class="caption">Douche 1 - Avant nettoyage</p>
+            </div>
+            <div class="gallery-item">
+                <img src="D1AP.jpg" alt="Appartement 1 - Après">
+                <p class="caption">Douche 1 - Après nettoyage</p>
+            </div>
+
+            <!-- DA2 -->
+            <div class="gallery-item">
+                <img src="DA2AV.jpg" alt="Appartement 2 - Avant">
+                <p class="caption">Douche 2 - Avant nettoyage</p>
+            </div>
+            <div class="gallery-item">
+                <img src="DA2AP.jpg" alt="Appartement 2 - Après">
+                <p class="caption">Douche 2 - Après nettoyage</p>
+            </div>
+
+            <!-- DA3 -->
+            <div class="gallery-item">
+                <img src="DA3AV.jpg" alt="Appartement 3 - Avant">
+                <p class="caption">Douche 3 - Avant nettoyage</p>
+            </div>
+            <div class="gallery-item">
+                <img src="DA3AP.jpg" alt="Appartement 3 - Après">
+                <p class="caption">Douche 3 - Après nettoyage</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">Retour à l'accueil</a>
+    </main>
+
+  <footer>
+       <CENTER> <p>© 2025 Veryclean Siret 84080430600024
+      <BR>  2 IMPASSE DES PRES, 16190 SALLES-LAVALETTE 
+      <BR>RCP ORUS n°RCPH278384951. Tous droits réservés.</p> </CENTER>
+    </footer>
+</body>
+</html>

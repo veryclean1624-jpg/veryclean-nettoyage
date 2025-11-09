@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veryclean - Nettoyage Professionnel</title>
+    <style>
+        /* Ton CSS existant (inchangé) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('fond.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-radius: 0 0 10px 10px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .slogan {
+            color: #000 !important;
+            font-weight: 500;
+            margin: 10px 0 0;
+            font-size: 1.1em;
+        }
+        nav {
+            background-color: rgba(0, 123, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0 20px 20px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: #333;
+        }
+        section {
+            margin-bottom: 50px;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+        }
+        h1 {
+            margin: 10px 0;
+            color: #007bff;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #333;
+        }
+        .contact {
+            background-color: rgba(233, 236, 239, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #007bff;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #555;
+            font-style: italic;
+        }
+        small {
+            color: #666;
+            font-size: 0.85em;
+        }
+        #form-message {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        #form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        footer {
+            background-color: rgba(0, 123, 255, 0.9);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+            z-index: 10;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo Veryclean" class="logo">
+        <h1>Veryclean</h1>
+        <p class="slogan">Nettoyage professionnel et impeccable pour vos logements et parties communes en Charente</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="realisations.html">Nos Réalisations</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="accueil">
+            <h2>Bienvenue chez Veryclean</h2>
+            <p>Nous sommes spécialisés dans le nettoyage de qualité pour redonner de l'éclat à vos espaces. Autour d'Angoulême, de Cognac, Jarnac ou de Barbezieux, que ce soit après le départ d'un locataire ou pour l'entretien des parties communes d'immeuble, notre équipe assure un service rapide, efficace et sur mesure. Nous sommes le partenaire privilégié des agences immobilières et des cabinets de gestion locative. Nous pouvons travailler à partir de vos états des lieux, de vos comparatifs entrée/sortie ou selon vos demandes.</p>
+        </section>
+
+        <section id="services">
+            <h2>Nos Services</h2>
+            <h3>Nettoyage après départ de locataire</h3>
+            <p>Un nettoyage complet pour préparer le logement à son prochain occupant :</p>
+            <ul>
+                <li>Cuisine : plans de travail, four, frigo, hotte...</li>
+                <li>Salle de bains et douche : baignoire, lavabo, carrelage...</li>
+                <li>WC y compris dépôt de calcaire...</li>
+                <li>Fenêtres et vitres : lavage intérieur et extérieur</li>
+                <li>Sols, murs...</li>
+            </ul>
+
+            <h3>Entretien des parties communes d'immeuble</h3>
+            <p>Un maintien impeccable des espaces collectifs selon vos besoins :</p>
+            <ul>
+                <li>Couloirs, escaliers</li>
+                <li>Nettoyage des vitrages et miroirs</li>
+                <li>Nettoyage des interrupteurs</li>
+                <li>Entretien des sols et tapis</li>
+            </ul>
+            <p><strong>Pourquoi l'entretien des parties communes ?</strong></p>
+            <p>Faire entretenir les parties communes par un professionnel renforce l'image de votre immeuble en garantissant propreté, sécurité et modernité, ce qui valorise le bien et attire des locataires de qualité. Cela améliore les rapports avec les occupants en évitant les conflits liés à l'entretien amateur, tout en assurant une conformité réglementaire et une durabilité accrue des installations, préservant ainsi la valeur patrimoniale à long terme.</p>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Demande de Devis ou Intervention</h2>
+            <p>Obtenez un devis gratuit en 24h. Joignez des photos ou documents si besoin.</p>
+
+            <form id="contact-form" action="https://formspree.io/f/meovjpqv" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="_replyto" required placeholder="jean@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Type de demande *</label>
+                    <select id="type" name="type" required>
+                        <option value="" disabled selected>Sélectionnez...</option>
+                        <option value="demande_generale">Demande générale</option>
+                        <option value="demande_devis">Demande de devis</option>
+                        <option value="urgence">Intervention en urgence</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre besoin..."></textarea>
+                </div>
+
+                <div class="form-group">
+    <label for="attachment">Joindre des fichiers (photos, état des lieux, etc.)</label>
+    <input type="file" id="attachment" name="attachment" multiple accept="image/*,.pdf,.doc,.docx">
+    <small>Max 25 Mo/fichier - Formats : JPG, PNG, PDF, Word</small>
+</div>
+
+                <button type="submit" class="btn-submit">Envoyer la demande</button>
+            </form>
+
+            <div id="form-message"></div>
+            <p class="info">Nous répondons sous 24h. Déplacement gratuit pour les devis.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Veryclean Siret 84080430600024<br>
+        2 IMPASSE DES PRES, 16190 SALLES-LAVALETTE<br>
+        RCP ORUS n°RCPH278384951. Tous droits réservés.</p>
+    </footer>
+
+<script>
+    const form = document.getElementById('contact-form');
+    const messageDiv = document.getElementById('form-message');
+    const fileInput = document.getElementById('attachment'); // ← CORRIGÉ !
+
+    form.addEventListener('submit', function(e) {
+        const files = fileInput.files;
+        if (files.length > 0) {
+            let totalSize = 0;
+            for (let file of files) {
+                if (file.size > 25 * 1024 * 1024) { // 25 Mo max
+                    e.preventDefault();
+                    showMessage('Erreur : Fichier trop gros (max 25 Mo).', 'error');
+                    return false;
+                }
+                totalSize += file.size;
+            }
+            if (totalSize > 100 * 1024 * 1024) { // 100 Mo total
+                e.preventDefault();
+                showMessage('Erreur : Taille totale trop grande (max 100 Mo).', 'error');
+                return false;
+            }
+        }
+
+        console.log('Envoi vers Formspree... Fichiers:', files.length);
+        showMessage('Envoi en cours...', 'success');
+    });
+
+    // Affichage messages
+    function showMessage(text, type) {
+        messageDiv.textContent = text;
+        messageDiv.className = type;
+        messageDiv.style.display = 'block';
+    }
+
+    // Succès après envoi (Formspree redirige ou répond)
+    window.addEventListener('load', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success')) {
+            showMessage('Succès ! Votre message et fichiers ont été envoyés.', 'success');
+        }
+    });
+</script>
+</body>
+</html>
