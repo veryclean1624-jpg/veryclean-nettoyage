@@ -195,22 +195,22 @@
       <h2>Demande de Devis ou Intervention</h2>
       <p>Obtenez un devis gratuit en 24h. Joignez des photos ou documents si besoin.</p>
 
-   <form id="contact-form" action="https://formspree.io/f/meovjpqv" method="POST">
+<form id="contact-form">
   <div class="form-group">
     <label for="name">Nom complet *</label>
-    <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+    <input type="text" id="name" required placeholder="Jean Dupont">
   </div>
   <div class="form-group">
     <label for="email">Email *</label>
-    <input type="email" id="email" name="_replyto" required placeholder="jean@example.com">
+    <input type="email" id="email" required placeholder="jean@example.com">
   </div>
   <div class="form-group">
     <label for="phone">Téléphone</label>
-    <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+    <input type="tel" id="phone" placeholder="06 12 34 56 78">
   </div>
   <div class="form-group">
     <label for="type">Type de demande *</label>
-    <select id="type" name="type" required>
+    <select id="type" required>
       <option value="" disabled selected>Sélectionnez...</option>
       <option value="demande_generale">Demande générale</option>
       <option value="demande_devis">Demande de devis</option>
@@ -219,13 +219,13 @@
   </div>
   <div class="form-group">
     <label for="message">Message *</label>
-    <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre besoin..."></textarea>
+    <textarea id="message" rows="5" required placeholder="Décrivez votre besoin..."></textarea>
   </div>
 
   <!-- UPLOADCARE -->
   <div class="form-group">
     <label>Joindre des fichiers</label>
-    <input type="hidden" name="attachment" id="attachment-urls">
+    <input type="hidden" id="attachment-urls">
     <div id="uploadcare-widget"></div>
     <small>Max 25 Mo/fichier - JPG, PNG, PDF, Word</small>
   </div>
@@ -247,40 +247,61 @@
   UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
   UPLOADCARE_LOCALE = 'fr';
 
-  // Widget Uploadcare
   const widget = uploadcare.Widget('#uploadcare-widget', {
     multiple: true,
     maxFileSize: 26214400,
     accept: 'image/*,.pdf,.doc,.docx'
   });
 
+  const form = document.getElementById('contact-form');
   const attachmentField = document.getElementById('attachment-urls');
 
-  // Quand un fichier est uploadé → met à jour le champ caché
-  widget.onUploadComplete(function(fileInfo) {
-    const urls = fileInfo.files ? fileInfo.files.map(f => f.cdnUrl).join('\n') : fileInfo.cdnUrl;
-    attachmentField.value = urls;
-  });
-
-  // Quand on enlève un fichier
+  // Met à jour les liens dès que les fichiers sont uploadés
   widget.onChange(function(group) {
-    if (!group) {
+    if (group) {
+      group.promise().done(info => {
+        const urls = info.files().map(f => f.cdnUrl).join('\n');
+        attachmentField.value = urls;
+      });
+    } else {
       attachmentField.value = '';
     }
   });
 
-  // AU CAS OÙ : forcer avant submit
-  document.getElementById('contact-form').addEventListener('submit', function() {
-    const current = widget.value();
-    if (current && current.files) {
-      current.promise().done(info => {
-        attachmentField.value = info.files().map(f => f.cdnUrl).join('\n');
-      });
-    }
+  // Envoi direct par email
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const type = document.getElementById('type').value;
+    const message = document.getElementById('message').value;
+    const attachments = attachmentField.value;
+
+    const subject = encodeURIComponent(`[VERYCLEAN] ${type} - ${name}`);
+    const body = encodeURIComponent(
+`NOM: ${name}
+EMAIL: ${email}
+TÉL: ${phone}
+TYPE: ${type}
+
+MESSAGE:
+${message}
+
+${attachments ? 'PIÈCES JOINTES:\n' + attachments : 'Aucune pièce jointe'}
+`);
+
+    // OUVRE L'EMAIL DANS LE CLIENT MAIL
+    window.location.href = `mailto:contact@veryclean-nettoyage.fr?subject=${subject}&body=${body}`;
+
+    // Message de confirmation
+    alert('Votre demande a été envoyée ! Ouvrez votre application mail pour finaliser.');
   });
 </script>
 </body>
 </html>
+
 
 
 
