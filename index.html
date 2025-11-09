@@ -225,7 +225,7 @@
         <!-- UPLOADCARE WIDGET -->
         <div class="form-group">
           <label for="attachment">Joindre des fichiers</label>
-          <input type="hidden" name="attachment" id="attachment" role="uploadcare-uploader">
+          <input type="hidden" name="attachment" role="uploadcare-uploader" data-multiple="true">
           <small>Max 25 Mo/fichier - Formats : JPG, PNG, PDF, Word</small>
         </div>
 
@@ -243,21 +243,23 @@
 
   <!-- UPLOADCARE CONFIG -->
   <script>
-    UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
-    UPLOADCARE_LOCALE = 'fr';
-    UPLOADCARE_EFFECTS = 'crop,rotate,enhance';
-    UPLOADCARE_MULTIPLE = true;
-    UPLOADCARE_MAX_FILE_SIZE = 26214400; // 25 Mo
-    UPLOADCARE_ACCEPT = 'image/*,.pdf,.doc,.docx';
+  UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
+  UPLOADCARE_LOCALE = 'fr';
+  UPLOADCARE_EFFECTS = 'crop,rotate,enhance';
+  UPLOADCARE_MULTIPLE = true;
+  UPLOADCARE_MAX_FILE_SIZE = 26214400;
+  UPLOADCARE_ACCEPT = 'image/*,.pdf,.doc,.docx';
 
-    const widget = uploadcare.Widget('#attachment');
-    widget.onChange(function(fileInfo) {
-      if (fileInfo) {
-        fileInfo.promise().done(info => {
-          console.log('Fichier uploadé :', info.cdnUrl);
-        });
-      }
-    });
-  </script>
+  const widget = uploadcare.Widget('[role=uploadcare-uploader]');
+  widget.onChange(function(group) {
+    if (group) {
+      group.promise().done(function(info) {
+        const urls = info.files().map(f => f.cdnUrl).join(', ');
+        document.querySelector('input[name="attachment"]').value = urls;
+      });
+    }
+  });
+</script>
 </body>
 </html>
+
