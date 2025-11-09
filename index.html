@@ -195,82 +195,82 @@
       <h2>Demande de Devis ou Intervention</h2>
       <p>Obtenez un devis gratuit en 24h. Joignez des photos ou documents si besoin.</p>
 
-<script>
-  UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
-  UPLOADCARE_LOCALE = 'fr';
+      <!-- FORMULAIRE FORM SUBMIT + UPLOADCARE -->
+      <form action="https://formsubmit.co/veryclean1624@gmail.com" method="POST">
+        <div class="form-group">
+          <label for="name">Nom complet *</label>
+          <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="_replyto" required placeholder="jean@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+        </div>
+        <div class="form-group">
+          <label for="type">Type de demande *</label>
+          <select id="type" name="type" required>
+            <option value="" disabled selected>Sélectionnez...</option>
+            <option value="Demande générale">Demande générale</option>
+            <option value="Demande de devis">Demande de devis</option>
+            <option value="Intervention en urgence">Intervention en urgence</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre besoin..."></textarea>
+        </div>
 
-  const widget = uploadcare.Widget('#uploadcare-widget', {
-    multiple: true,
-    maxFileSize: 26214400,
-    accept: 'image/*,.pdf,.doc,.docx'
-  });
+        <!-- UPLOADCARE -->
+        <div class="form-group">
+          <label>Pièces jointes (photos, état des lieux, PDF...)</label>
+          <input type="hidden" name="attachments" id="uploadcare-urls">
+          <div id="uploadcare-widget"></div>
+          <small>Max 25 Mo/fichier - JPG, PNG, PDF, Word</small>
+        </div>
 
-  const form = document.getElementById('contact-form');
-  const attachmentField = document.getElementById('attachment-urls');
+        <!-- PROTECTION & REDIRECTION -->
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://veryclean1624-jpg.github.io/veryclean-nettoyage/merci.html">
+        <input type="hidden" name="_subject" value="Nouvelle demande Veryclean">
 
-  // Met à jour les liens dès que les fichiers sont uploadés
-  widget.onChange(function(group) {
-    if (group) {
-      group.promise().done(info => {
-        const urls = info.files().map(f => f.cdnUrl).join('\n');
-        attachmentField.value = urls;
-      });
-    } else {
-      attachmentField.value = '';
-    }
-  });
+        <button type="submit" class="btn-submit">Envoyer la demande</button>
+      </form>
 
-  // Envoi direct par email
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+      <p class="info">Nous répondons sous 24h. Déplacement gratuit pour les devis.</p>
+    </section>
+  </main>
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const type = document.getElementById('type').value;
-    const message = document.getElementById('message').value;
-    const attachments = attachmentField.value;
+  <footer>
+    <p>© 2025 Veryclean Siret 84080430600024<br>
+    2 IMPASSE DES PRES, 16190 SALLES-LAVALETTE<br>
+    RCP ORUS n°RCPH278384951. Tous droits réservés.</p>
+  </footer>
 
-    const subject = encodeURIComponent(`[VERYCLEAN] ${type} - ${name}`);
-    const body = encodeURIComponent(
-`NOM: ${name}
-EMAIL: ${email}
-TÉL: ${phone}
-TYPE: ${type}
+  <!-- UPLOADCARE SCRIPT -->
+  <script>
+    UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
+    UPLOADCARE_LOCALE = 'fr';
 
-MESSAGE:
-${message}
+    const widget = uploadcare.Widget('#uploadcare-widget', {
+      multiple: true,
+      maxFileSize: 26214400,
+      accept: 'image/*,.pdf,.doc,.docx'
+    });
 
-${attachments ? 'PIÈCES JOINTES:\n' + attachments : 'Aucune pièce jointe'}
-`);
-
-    // OUVRE L'EMAIL DANS LE CLIENT MAIL
-    window.location.href = `mailto:contact@veryclean-nettoyage.fr?subject=${subject}&body=${body}`;
-
-    // Message de confirmation
-    alert('Votre demande a été envoyée ! Ouvrez votre application mail pour finaliser.');
-  });
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.min.js"></script>
-<script>
-  UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
-  const widget = uploadcare.Widget('#uploadcare-widget', { multiple: true });
-  
-  widget.onChange(group => {
-    if (group) {
-      group.promise().done(info => {
-        const urls = info.files().map(f => f.cdnUrl).join('\n');
-        document.getElementById('attachments').value = urls;
-      });
-    } else {
-      document.getElementById('attachments').value = '';
-    }
-  });
-</script>
+    widget.onChange(group => {
+      if (group) {
+        group.promise().done(info => {
+          const urls = info.files().map(f => f.cdnUrl).join('\n');
+          document.getElementById('uploadcare-urls').value = urls;
+        });
+      } else {
+        document.getElementById('uploadcare-urls').value = '';
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
