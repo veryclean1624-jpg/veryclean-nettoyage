@@ -247,42 +247,41 @@
   UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
   UPLOADCARE_LOCALE = 'fr';
 
+  // Widget Uploadcare
   const widget = uploadcare.Widget('#uploadcare-widget', {
     multiple: true,
     maxFileSize: 26214400,
     accept: 'image/*,.pdf,.doc,.docx'
   });
 
-  const form = document.getElementById('contact-form');
   const attachmentField = document.getElementById('attachment-urls');
 
-  // Quand des fichiers sont ajoutés
+  // Quand un fichier est uploadé → met à jour le champ caché
+  widget.onUploadComplete(function(fileInfo) {
+    const urls = fileInfo.files ? fileInfo.files.map(f => f.cdnUrl).join('\n') : fileInfo.cdnUrl;
+    attachmentField.value = urls;
+  });
+
+  // Quand on enlève un fichier
   widget.onChange(function(group) {
-    if (group) {
-      group.promise().done(function(info) {
-        const urls = info.files().map(f => f.cdnUrl).join('\n');
-        attachmentField.value = urls;  // Met à jour le champ caché
-      });
-    } else {
-      attachmentField.value = ''; // Vide si aucun fichier
+    if (!group) {
+      attachmentField.value = '';
     }
   });
 
-  // Avant envoi du formulaire
-  form.addEventListener('submit', function(e) {
-    const currentFiles = widget.value();
-    if (currentFiles && currentFiles.files) {
-      e.preventDefault(); // Bloque l’envoi
-      Promise.all(currentFiles.files.map(f => f.promise())).then(results => {
-        const urls = results.map(r => r.cdnUrl).join('\n');
-        attachmentField.value = urls;
-        form.submit(); // Envoie pour de vrai
+  // AU CAS OÙ : forcer avant submit
+  document.getElementById('contact-form').addEventListener('submit', function() {
+    const current = widget.value();
+    if (current && current.files) {
+      current.promise().done(info => {
+        attachmentField.value = info.files().map(f => f.cdnUrl).join('\n');
       });
     }
   });
 </script>
 </body>
 </html>
+
 
 
 
