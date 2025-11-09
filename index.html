@@ -254,19 +254,35 @@
   });
 
   const form = document.getElementById('contact-form');
-  form.addEventListener('submit', function(e) {
-    const files = widget.value();
-    if (files && files.files) {
-      Promise.all(files.files.map(f => f.promise())).then(results => {
-        const urls = results.map(r => r.cdnUrl).join(', ');
-        document.getElementById('attachment-urls').value = urls;
-        form.submit();
+  const attachmentField = document.getElementById('attachment-urls');
+
+  // Quand des fichiers sont ajoutés
+  widget.onChange(function(group) {
+    if (group) {
+      group.promise().done(function(info) {
+        const urls = info.files().map(f => f.cdnUrl).join('\n');
+        attachmentField.value = urls;  // Met à jour le champ caché
       });
-      e.preventDefault();
+    } else {
+      attachmentField.value = ''; // Vide si aucun fichier
+    }
+  });
+
+  // Avant envoi du formulaire
+  form.addEventListener('submit', function(e) {
+    const currentFiles = widget.value();
+    if (currentFiles && currentFiles.files) {
+      e.preventDefault(); // Bloque l’envoi
+      Promise.all(currentFiles.files.map(f => f.promise())).then(results => {
+        const urls = results.map(r => r.cdnUrl).join('\n');
+        attachmentField.value = urls;
+        form.submit(); // Envoie pour de vrai
+      });
     }
   });
 </script>
 </body>
 </html>
+
 
 
