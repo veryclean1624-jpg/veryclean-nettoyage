@@ -195,42 +195,43 @@
       <h2>Demande de Devis ou Intervention</h2>
       <p>Obtenez un devis gratuit en 24h. Joignez des photos ou documents si besoin.</p>
 
-      <form action="https://formspree.io/f/meovjpqv" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="name">Nom complet *</label>
-          <input type="text" id="name" name="name" required placeholder="Jean Dupont">
-        </div>
-        <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="_replyto" required placeholder="jean@example.com">
-        </div>
-        <div class="form-group">
-          <label for="phone">Téléphone</label>
-          <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
-        </div>
-        <div class="form-group">
-          <label for="type">Type de demande *</label>
-          <select id="type" name="type" required>
-            <option value="" disabled selected>Sélectionnez...</option>
-            <option value="demande_generale">Demande générale</option>
-            <option value="demande_devis">Demande de devis</option>
-            <option value="urgence">Intervention en urgence</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre besoin..."></textarea>
-        </div>
+   <form id="contact-form" action="https://formspree.io/f/meovjpqv" method="POST">
+  <div class="form-group">
+    <label for="name">Nom complet *</label>
+    <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+  </div>
+  <div class="form-group">
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="_replyto" required placeholder="jean@example.com">
+  </div>
+  <div class="form-group">
+    <label for="phone">Téléphone</label>
+    <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+  </div>
+  <div class="form-group">
+    <label for="type">Type de demande *</label>
+    <select id="type" name="type" required>
+      <option value="" disabled selected>Sélectionnez...</option>
+      <option value="demande_generale">Demande générale</option>
+      <option value="demande_devis">Demande de devis</option>
+      <option value="urgence">Intervention en urgence</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="message">Message *</label>
+    <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre besoin..."></textarea>
+  </div>
 
-        <!-- UPLOADCARE WIDGET -->
-        <div class="form-group">
-          <label for="attachment">Joindre des fichiers</label>
-          <input type="hidden" name="attachment" role="uploadcare-uploader" data-multiple="true">
-          <small>Max 25 Mo/fichier - Formats : JPG, PNG, PDF, Word</small>
-        </div>
+  <!-- UPLOADCARE -->
+  <div class="form-group">
+    <label>Joindre des fichiers</label>
+    <input type="hidden" name="attachment" id="attachment-urls">
+    <div id="uploadcare-widget"></div>
+    <small>Max 25 Mo/fichier - JPG, PNG, PDF, Word</small>
+  </div>
 
-        <button type="submit" class="btn-submit">Envoyer la demande</button>
-      </form>
+  <button type="submit" class="btn-submit">Envoyer la demande</button>
+</form>
       <p class="info">Nous répondons sous 24h. Déplacement gratuit pour les devis.</p>
     </section>
   </main>
@@ -242,24 +243,30 @@
   </footer>
 
   <!-- UPLOADCARE CONFIG -->
-  <script>
+<script>
   UPLOADCARE_PUBLIC_KEY = 'c80a2ce126008eab7b78';
   UPLOADCARE_LOCALE = 'fr';
-  UPLOADCARE_EFFECTS = 'crop,rotate,enhance';
-  UPLOADCARE_MULTIPLE = true;
-  UPLOADCARE_MAX_FILE_SIZE = 26214400;
-  UPLOADCARE_ACCEPT = 'image/*,.pdf,.doc,.docx';
 
-  const widget = uploadcare.Widget('[role=uploadcare-uploader]');
-  widget.onChange(function(group) {
-    if (group) {
-      group.promise().done(function(info) {
-        const urls = info.files().map(f => f.cdnUrl).join(', ');
-        document.querySelector('input[name="attachment"]').value = urls;
+  const widget = uploadcare.Widget('#uploadcare-widget', {
+    multiple: true,
+    maxFileSize: 26214400,
+    accept: 'image/*,.pdf,.doc,.docx'
+  });
+
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', function(e) {
+    const files = widget.value();
+    if (files && files.files) {
+      Promise.all(files.files.map(f => f.promise())).then(results => {
+        const urls = results.map(r => r.cdnUrl).join(', ');
+        document.getElementById('attachment-urls').value = urls;
+        form.submit();
       });
+      e.preventDefault();
     }
   });
 </script>
 </body>
 </html>
+
 
