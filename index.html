@@ -1,244 +1,676 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Veryclean - Nettoyage Professionnel</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('fond.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      min-height: 100vh;
-      position: relative;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veryclean | Nettoyage professionnel après locataire & parties communes – Charente</title>
+    <meta name="description" content="Veryclean : nettoyage professionnel après départ de locataire et entretien des parties communes d'immeubles en Charente (Angoulême, Cognac, Jarnac, Barbezieux). Devis gratuit sous 24h. Partenaire des agences immobilières.">
+    <meta name="keywords" content="nettoyage après locataire Charente, nettoyage parties communes Angoulême, entreprise nettoyage Cognac, devis nettoyage logement, Veryclean">
+    <meta name="author" content="Veryclean">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://veryclean-nettoyage.fr/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://veryclean-nettoyage.fr/">
+    <meta property="og:title" content="Veryclean | Nettoyage professionnel en Charente">
+    <meta property="og:description" content="Nettoyage après départ de locataire et entretien des parties communes. Service rapide, soigné et sur mesure autour d'Angoulême, Cognac, Jarnac et Barbezieux.">
+    <meta property="og:image" content="https://veryclean-nettoyage.fr/logo.png">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Veryclean | Nettoyage professionnel en Charente">
+    <meta name="twitter:description" content="Nettoyage après locataire & parties communes. Devis gratuit sous 24h.">
+
+    <!-- Favicon (utilise le logo existant) -->
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Veryclean",
+      "description": "Entreprise de nettoyage professionnel spécialisée dans le nettoyage après départ de locataire et l'entretien des parties communes d'immeubles en Charente.",
+      "url": "https://veryclean-nettoyage.fr",
+      "logo": "https://veryclean-nettoyage.fr/logo.png",
+      "image": "https://veryclean-nettoyage.fr/logo.png",
+      "telephone": "+33674206854",
+      "email": "veryclean1624@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2 Impasse des Prés",
+        "addressLocality": "Salles-Lavalette",
+        "postalCode": "16190",
+        "addressRegion": "Charente",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.45",
+        "longitude": "0.25"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Angoulême" },
+        { "@type": "City", "name": "Cognac" },
+        { "@type": "City", "name": "Jarnac" },
+        { "@type": "City", "name": "Barbezieux-Saint-Hilaire" },
+        { "@type": "AdministrativeArea", "name": "Charente" }
+      ],
+      "priceRange": "€€",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": []
     }
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.1);
-      z-index: -1;
-    }
-    header {
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      border-radius: 0 0 10px 10px;
-      margin-bottom: 20px;
-    }
-    .logo {
-      max-width: 300px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .slogan {
-      color: #000 !important;
-      font-weight: 500;
-      margin: 10px 0 0;
-      font-size: 1.1em;
-    }
-    nav {
-      background-color: rgba(0, 123, 255, 0.9);
-      padding: 10px;
-      border-radius: 5px;
-      margin: 0 20px 20px;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav li {
-      margin: 0 15px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 30px;
-      background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      color: #333;
-    }
-    section {
-      margin-bottom: 50px;
-    }
-    h1, h2, h3 {
-      color: #007bff;
-    }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      color: #333;
-    }
-    .contact {
-      background-color: rgba(233, 236, 239, 0.95);
-      padding: 30px;
-      border-radius: 10px;
-      border-left: 5px solid #007bff;
-    }
-    .form-group {
-      margin-bottom: 18px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
-      color: #007bff;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1em;
-    }
-    .btn-submit {
-      background-color: #007bff;
-      color: white;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1.1em;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .btn-submit:hover {
-      background-color: #0056b3;
-    }
-    .info {
-      margin-top: 20px;
-      font-size: 0.95em;
-      color: #555;
-      font-style: italic;
-    }
-    footer {
-      background-color: rgba(0, 123, 255, 0.9);
-      color: white;
-      text-align: center;
-      padding: 15px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-      font-size: 0.9em;
-      backdrop-filter: blur(5px);
-      z-index: 10;
-    }
-  </style>
+    </script>
+
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --primary-dark: #0a58ca;
+            --primary-light: #e7f1ff;
+            --text: #1a1a2e;
+            --text-muted: #5a5a6e;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --radius: 12px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+            --transition: 0.25s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand img {
+            height: 56px;
+            width: auto;
+        }
+
+        .brand-text h1 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .brand-text .tagline {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 8px 16px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            transition: background var(--transition), color var(--transition);
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            padding: 60px 24px 70px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.75rem, 4vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform var(--transition), box-shadow var(--transition);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Main content */
+        main {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+            width: 100%;
+        }
+
+        section {
+            margin-bottom: 56px;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        section > p {
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            max-width: 700px;
+        }
+
+        /* Service cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 28px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            border: 1px solid #eef2f7;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card .icon {
+            font-size: 1.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .service-card li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .why-box {
+            background: var(--primary-light);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin-top: 28px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .why-box h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .why-box p {
+            color: var(--text);
+            font-size: 0.98rem;
+        }
+
+        /* Zones */
+        .zones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .zone-tag {
+            background: var(--white);
+            border: 1px solid #d0e2ff;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 36px;
+            box-shadow: var(--shadow);
+            border: 1px solid #eef2f7;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 8px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 14px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color var(--transition), box-shadow var(--transition);
+            background: #fafbfc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-group small {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .btn-submit {
+            margin-top: 8px;
+            padding: 14px 32px;
+            font-size: 1.05rem;
+        }
+
+        #form-message {
+            display: none;
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        #form-message.success {
+            background: #d1e7dd;
+            color: #0f5132;
+            border: 1px solid #badbcc;
+        }
+
+        #form-message.error {
+            background: #f8d7da;
+            color: #842029;
+            border: 1px solid #f5c2c7;
+        }
+
+        .info-note {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #0a2540;
+            color: #c9d6e8;
+            padding: 32px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .site-footer p {
+            margin: 4px 0;
+        }
+
+        .site-footer strong {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 40px 20px 50px;
+            }
+
+            main {
+                padding: 32px 16px 60px;
+            }
+
+            .contact-section {
+                padding: 24px 18px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Logo Veryclean" class="logo">
-    <h1>Veryclean</h1>
-    <p class="slogan">Nettoyage professionnel et impeccable pour vos logements et parties communes en Charente</p>
-  </header>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="Logo Veryclean – Nettoyage professionnel Charente">
+                <div class="brand-text">
+                    <h1>Veryclean</h1>
+                    <span class="tagline">Nettoyage pro en Charente</span>
+                </div>
+            </a>
+            <nav aria-label="Navigation principale">
+                <ul>
+                    <li><a href="#accueil" class="active">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <nav>
-    <ul>
-      <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="realisations.html">Nos Réalisations</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section id="accueil">
-      <h2>Bienvenue chez Veryclean</h2>
-      <p>Nous sommes spécialisés dans le nettoyage de qualité pour redonner de l'éclat à vos espaces. Autour d'Angoulême, de Cognac, Jarnac ou de Barbezieux, que ce soit après le départ d'un locataire ou pour l'entretien des parties communes d'immeuble, notre équipe assure un service rapide, efficace et sur mesure. Nous sommes le partenaire privilégié des agences immobilières et des cabinets de gestion locative. Nous pouvons travailler à partir de vos états des lieux, de vos comparatifs entrée/sortie ou selon vos demandes.</p>
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h2>Nettoyage professionnel après locataire & parties communes</h2>
+            <p>Service rapide, soigné et sur mesure autour d’Angoulême, Cognac, Jarnac et Barbezieux. Partenaire de confiance des agences immobilières et cabinets de gestion locative.</p>
+            <a href="#contact" class="btn">Demander un devis gratuit</a>
+        </div>
     </section>
 
-    <section id="services">
-      <h2>Nos Services</h2>
-      <h3>Nettoyage après départ de locataire</h3>
-      <p>Un nettoyage complet pour préparer le logement à son prochain occupant :</p>
-      <ul>
-        <li>Cuisine : plans de travail, four, frigo, hotte...</li>
-        <li>Salle de bains et douche : baignoire, lavabo, carrelage...</li>
-        <li>WC y compris dépôt de calcaire...</li>
-        <li>Fenêtres et vitres : lavage intérieur et extérieur</li>
-        <li>Sols, murs...</li>
-      </ul>
+    <main>
+        <section id="services">
+            <h2>Nos services de nettoyage</h2>
+            <p>Nous intervenons sur les logements et les parties communes d’immeubles dans toute la Charente. Travail à partir de vos états des lieux, comparatifs entrée/sortie ou selon vos consignes.</p>
 
-      <h3>Entretien des parties communes d'immeuble</h3>
-      <p>Un maintien impeccable des espaces collectifs selon vos besoins :</p>
-      <ul>
-        <li>Couloirs, escaliers</li>
-        <li>Nettoyage des vitrages et miroirs</li>
-        <li>Nettoyage des interrupteurs</li>
-        <li>Entretien des sols et tapis</li>
-      </ul>
-      <p><strong>Pourquoi l'entretien des parties communes ?</strong></p>
-      <p>Faire entretenir les parties communes par un professionnel renforce l'image de votre immeuble en garantissant propreté, sécurité et modernité, ce qui valorise le bien et attire des locataires de qualité. Cela améliore les rapports avec les occupants en évitant les conflits liés à l'entretien amateur, tout en assurant une conformité réglementaire et une durabilité accrue des installations, préservant ainsi la valeur patrimoniale à long terme.</p>
-    </section>
+            <div class="services-grid">
+                <article class="service-card">
+                    <h3><span class="icon" aria-hidden="true">🏠</span> Après départ de locataire</h3>
+                    <p>Un nettoyage complet pour remettre le logement en état pour le prochain occupant :</p>
+                    <ul>
+                        <li>Cuisine : plans de travail, four, frigo, hotte</li>
+                        <li>Salle de bains & douche : baignoire, lavabo, carrelage</li>
+                        <li>WC (y compris dépôt de calcaire)</li>
+                        <li>Fenêtres et vitres (intérieur + extérieur)</li>
+                        <li>Sols, murs et finitions</li>
+                    </ul>
+                </article>
 
-    <section id="contact" class="contact">
-      <h2>Demande de Devis ou Intervention</h2>
-      <p>Obtenez un devis gratuit en 24h.</p>
+                <article class="service-card">
+                    <h3><span class="icon" aria-hidden="true">🏢</span> Parties communes d’immeuble</h3>
+                    <p>Entretien régulier ou ponctuel pour des espaces collectifs impeccables :</p>
+                    <ul>
+                        <li>Couloirs et escaliers</li>
+                        <li>Vitrages et miroirs</li>
+                        <li>Interrupteurs et points de contact</li>
+                        <li>Sols et tapis</li>
+                        <li>Maintenance adaptée à vos besoins</li>
+                    </ul>
+                </article>
+            </div>
 
-      <!-- FORMULAIRE SANS PIÈCES JOINTES -->
-      <form action="https://formsubmit.co/veryclean1624@gmail.com" method="POST">
-        <div class="form-group">
-          <label for="name">Nom complet *</label>
-          <input type="text" id="name" name="name" required placeholder="Jean Dupont">
-        </div>
-        <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="_replyto" required placeholder="jean@example.com">
-        </div>
-        <div class="form-group">
-          <label for="phone">Téléphone</label>
-          <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
-        </div>
-        <div class="form-group">
-          <label for="type">Type de demande *</label>
-          <select id="type" name="type" required>
-            <option value="" disabled selected>Sélectionnez...</option>
-            <option value="Demande générale">Demande générale</option>
-            <option value="Demande de devis">Demande de devis</option>
-            <option value="Intervention en urgence">Intervention en urgence</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre besoin..."></textarea>
-        </div>
+            <div class="why-box">
+                <h3>Pourquoi confier l’entretien des parties communes ?</h3>
+                <p>Un entretien professionnel renforce l’image de votre immeuble (propreté, sécurité, modernité), valorise le bien et attire des locataires de qualité. Cela limite les conflits liés à un entretien amateur, assure la conformité réglementaire et préserve la valeur patrimoniale à long terme.</p>
+            </div>
 
-        <!-- PROTECTION & REDIRECTION -->
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://veryclean1624-jpg.github.io/veryclean-nettoyage/merci.html">
-        <input type="hidden" name="_subject" value="Nouvelle demande Veryclean">
+            <h3 style="margin-top:36px; color:var(--primary); font-size:1.15rem;">Zones d’intervention</h3>
+            <div class="zones">
+                <span class="zone-tag">Angoulême</span>
+                <span class="zone-tag">Cognac</span>
+                <span class="zone-tag">Jarnac</span>
+                <span class="zone-tag">Barbezieux</span>
+                <span class="zone-tag">Charente</span>
+            </div>
+        </section>
 
-        <button type="submit" class="btn-submit">Envoyer la demande</button>
-      </form>
+        <section id="contact" class="contact-section">
+            <h2>Demande de devis ou intervention</h2>
+            <p>Obtenez un devis gratuit sous 24 h. Vous pouvez joindre photos ou documents (état des lieux, etc.).</p>
+            <p style="margin-top:8px;font-size:1rem;">
+                <strong>Tél.</strong> <a href="tel:+33674206854" style="color:var(--primary);font-weight:600;">06 74 20 68 54</a>
+                &nbsp;·&nbsp;
+                <strong>Email</strong> <a href="mailto:veryclean1624@gmail.com" style="color:var(--primary);font-weight:600;">veryclean1624@gmail.com</a>
+            </p>
 
-      <p class="info">Nous répondons sous 24h. Déplacement gratuit pour les devis.</p>
-    </section>
-  </main>
+            <form id="contact-form" action="https://formspree.io/f/meovjpqv" method="POST" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" autocomplete="name">
+                    </div>
 
-  <footer>
-    <p>© 2025 Veryclean Siret 84080430600024<br>
-    2 IMPASSE DES PRES, 16190 SALLES-LAVALETTE<br>
-    RCP ORUS n°RCPH278384951. Tous droits réservés.</p>
-  </footer>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="_replyto" required placeholder="jean@exemple.com" autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">Type de demande *</label>
+                        <select id="type" name="type" required>
+                            <option value="" disabled selected>Sélectionnez…</option>
+                            <option value="demande_generale">Demande générale</option>
+                            <option value="demande_devis">Demande de devis</option>
+                            <option value="urgence">Intervention en urgence</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre besoin (adresse, type de bien, urgence…)"></textarea>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="attachment">Joindre des fichiers (photos, état des lieux…)</label>
+                        <input type="file" id="attachment" name="attachment" multiple accept="image/*,.pdf,.doc,.docx">
+                        <small>Max 25 Mo par fichier — Formats : JPG, PNG, PDF, Word</small>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">Envoyer la demande</button>
+            </form>
+
+            <div id="form-message" role="status" aria-live="polite"></div>
+            <p class="info-note">Nous répondons sous 24 h. Déplacement gratuit pour les devis.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p><strong>Veryclean</strong> — Nettoyage professionnel en Charente</p>
+        <p>Tél. <a href="tel:+33674206854" style="color:#fff;text-decoration:underline;">06 74 20 68 54</a> · <a href="mailto:veryclean1624@gmail.com" style="color:#fff;text-decoration:underline;">veryclean1624@gmail.com</a></p>
+        <p>© 2025 Veryclean · SIRET 84080430600024</p>
+        <p>2 Impasse des Prés, 16190 Salles-Lavalette</p>
+        <p>RCP ORUS n°RCPH278384951 · Tous droits réservés</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const messageDiv = document.getElementById('form-message');
+        const fileInput = document.getElementById('attachment');
+
+        form.addEventListener('submit', function(e) {
+            const files = fileInput.files;
+            if (files.length > 0) {
+                let totalSize = 0;
+                for (let file of files) {
+                    if (file.size > 25 * 1024 * 1024) {
+                        e.preventDefault();
+                        showMessage('Erreur : un fichier dépasse 25 Mo.', 'error');
+                        return false;
+                    }
+                    totalSize += file.size;
+                }
+                if (totalSize > 100 * 1024 * 1024) {
+                    e.preventDefault();
+                    showMessage('Erreur : taille totale trop importante (max 100 Mo).', 'error');
+                    return false;
+                }
+            }
+            showMessage('Envoi en cours…', 'success');
+        });
+
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = type;
+            messageDiv.style.display = 'block';
+        }
+
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success')) {
+                showMessage('Succès ! Votre message a bien été envoyé.', 'success');
+            }
+        });
+    </script>
 </body>
 </html>
